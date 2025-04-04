@@ -66,6 +66,8 @@ async def add_data(data: SensorData):
 
 @app.post("/query_similar/")
 async def query_similar(query: QueryData):
+    print("Received data:", query.dict())  # Debug what's actually received
+
     """Find top 5 similar entries in the database."""
     if not database:
         raise HTTPException(status_code=404, detail="Database is empty")
